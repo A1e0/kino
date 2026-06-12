@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кинозал на двоих 🍿</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- мягкие световые пятна на фоне -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- ЭКРАН ВХОДА -->
+  <section id="login" class="login">
+    <div class="login-card">
+      <div class="logo-mark">🍿</div>
+      <h1 class="logo">Кинозал <span>на двоих</span></h1>
+      <p class="subtitle">Смотрите фильмы вместе, даже из разных городов.<br>Один ставит на паузу — у второго тоже пауза.</p>
+
+      <label class="field">
+        <span>Как тебя зовут?</span>
+        <input id="nameInput" type="text" maxlength="24" placeholder="Например, Алмас" autocomplete="off" />
+      </label>
+
+      <button id="createBtn" class="btn btn-primary btn-block">
+        Создать комнату
+      </button>
+
+      <div class="or"><span>или войти к другу</span></div>
+
+      <div class="join-row">
+        <input id="codeInput" type="text" maxlength="8" placeholder="КОД" autocomplete="off" />
+        <button id="joinBtn" class="btn btn-block">Войти</button>
+      </div>
+
+      <p id="loginHint" class="hint"></p>
+    </div>
+    <div class="login-foot">Сделано с ❤️ для совместных вечеров</div>
+  </section>
+
+  <!-- ОСНОВНОЙ ЭКРАН -->
+  <section id="app" class="app hidden">
+    <header class="topbar">
+      <div class="brand"><span class="brand-ic">🍿</span> Кинозал</div>
+
+      <div class="room-info">
+        <div class="room-chip">
+          <span class="room-label">Комната</span>
+          <button id="roomCode" class="room-code" title="Нажми, чтобы скопировать">----</button>
+        </div>
+        <div id="status" class="status">
+          <span class="dot"></span><span id="statusText">подключение…</span>
+        </div>
+      </div>
+
+      <button id="leaveBtn" class="btn btn-ghost">Выйти</button>
+    </header>
+
+    <div class="main">
+      <div class="stage">
+        <!-- Каталог -->
+        <div id="catalog" class="catalog"></div>
+
+        <!-- Плеер -->
+        <div id="playerWrap" class="player-wrap hidden">
+          <button id="backBtn" class="btn btn-ghost back">← К каталогу</button>
+          <h2 id="nowTitle" class="now-title"></h2>
+          <div class="video-frame">
+            <video id="video" controls playsinline></video>
+          </div>
+          <p id="playerHint" class="player-hint"></p>
+        </div>
+      </div>
+
+      <!-- Чат -->
+      <aside class="chat">
+        <div class="chat-head">
+          <span class="chat-title">💬 Чат</span>
+          <span id="chatStatus" class="chat-status">не в сети</span>
+        </div>
+        <div id="messages" class="messages">
+          <div class="msg-system"><span>Комната создана. Поделись кодом с другом 👆</span></div>
+        </div>
+        <form id="chatForm" class="chat-form">
+          <input id="chatInput" type="text" maxlength="500" placeholder="Написать сообщение…" autocomplete="off" />
+          <button class="btn-send" type="submit" aria-label="Отправить">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </form>
+      </aside>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

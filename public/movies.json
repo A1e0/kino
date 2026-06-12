@@ -1,0 +1,16 @@
+[
+  {
+    "id": "avatar",
+    "title": "Avatar",
+    "type": "Фильм",
+    "poster": "posters/avatar.jpg",
+    "videoUrl": "https://pub-6de15e79144249e0a7a4dab571f20892.r2.dev/Avatar.mp4"
+  },
+  {
+    "id": "demo",
+    "title": "Демо-ролик (проверка связи)",
+    "type": "Демо",
+    "poster": "posters/demo.jpg",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+  }
+]
