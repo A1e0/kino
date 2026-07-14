@@ -1,5 +1,13 @@
 [
   {
+    "id": "hotd-s03e04",
+    "title": "Дом Дракона — 3 сезон, 4 серия «Тамблтон»",
+    "type": "Сериал",
+    "poster": "posters/hotd-s03e04.jpg",
+    "videoUrl": "https://pub-6de15e79144249e0a7a4dab571f20892.r2.dev/hotd-s03e04.mp4",
+    "subtitleUrl": "subs/hotd-s03e04.ru.vtt"
+  },
+  {
     "id": "avatar",
     "title": "Avatar",
     "type": "Фильм",

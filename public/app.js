@@ -104,10 +104,37 @@ function selectMovie(id, broadcast) {
 
   nowTitle.textContent = m.title || '';
   video.src = m.videoUrl || '';
+  setSubtitles(m.videoUrl ? m.subtitleUrl : '');
   catalogEl.classList.add('hidden');
   playerWrap.classList.remove('hidden');
 
   if (broadcast) send({ type: 'select', movieId: id });
+}
+
+// ── Субтитры ──
+// Подключаем русскую VTT-дорожку и ПРИНУДИТЕЛЬНО включаем её:
+// одного атрибута default недостаточно — часть браузеров его игнорирует,
+// поэтому ещё и выставляем textTrack.mode = 'showing'.
+function setSubtitles(url) {
+  // убираем дорожки от прошлого фильма
+  video.querySelectorAll('track').forEach((t) => t.remove());
+  if (!url) return;
+
+  const track = document.createElement('track');
+  track.kind = 'subtitles';
+  track.label = 'Русские';
+  track.srclang = 'ru';
+  track.src = url;
+  track.default = true;
+  video.appendChild(track);
+
+  const showSubs = () => {
+    for (const tt of video.textTracks) {
+      tt.mode = (tt.language === 'ru' || tt.label === 'Русские') ? 'showing' : 'disabled';
+    }
+  };
+  track.addEventListener('load', showSubs);
+  video.addEventListener('loadeddata', showSubs, { once: true });
 }
 
 function backToCatalog() {
